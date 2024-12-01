@@ -1,0 +1,7 @@
+aiogram~=2.17.1
+mysql-connector-python~=9.1.0
+XlsxWriter
+pymongo
+motor
+cachetools
+openpyxl
