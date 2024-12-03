@@ -7,3 +7,8 @@ class Language(ABC):
     @abstractmethod
     def catalog(self):
         pass
+
+    @property
+    @abstractmethod
+    def audio_uploaded(self):
+        pass

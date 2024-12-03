@@ -44,15 +44,18 @@ class MainHandler(BaseProjectHandler):
             )
         )
 
-# Example of file
-# CQACAgIAAxkBAAIugmcuUHKJ8KobEBsEpVQ03q44az1AAAI-YQAC2utwSfcPRT_V5fQBNgQ
-# "audio" : {
-#     "duration" : 707,
-#     "file_name" : "Выборы_в_США_кто_победит,_11_октября_2024,_14388.mp3",
-#     "mime_type" : "audio/mpeg",
-#     "title" : "Выборы в США: кто победит?",
-#     "performer" : "Е.С. Бхакти Викаша Свами",
-#     "file_id" : "CQACAgIAAxkBAAIuemcpMCHgpp9PK49lH9oBQA56m-BvAAJwYgACakVISZq7QTppnA6cNgQ",
-#     "file_unique_id" : "AgADcGIAAmpFSEk",
-#     "file_size" : 11845404
-#   }
+    async def upload_audio_handler(self, message: types.Message):
+        audio = message.audio
+        file_id = audio.file_id
+        duration = audio.duration
+        file_name = audio.file_name
+        mime_type = audio.mime_type
+        title = audio.title
+        performer = audio.performer
+        file_unique_id = audio.file_unique_id
+        file_size = audio.file_size
+        self.transactions.add_audio(
+            file_id, duration, file_name, mime_type, title, performer,
+            file_unique_id, file_size
+        )
+        await message.answer(admin_settings.language.audio_uploaded)
