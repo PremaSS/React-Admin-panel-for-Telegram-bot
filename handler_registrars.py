@@ -1,4 +1,4 @@
-from aiogram import Dispatcher, Bot
+from aiogram import Dispatcher, Bot, types
 from aiogram.dispatcher import filters
 
 from configs import admin_settings
@@ -25,4 +25,8 @@ class HandlerRegistrar(metaclass=ThreadSafeSingletonMeta):
         self.dp.register_callback_query_handler(
             self.main_handler.catalog_handler,
             filters.Text(startswith="category_id:")
+        )
+        self.dp.register_message_handler(
+            self.main_handler.upload_audio_handler,
+            content_types=types.ContentType.AUDIO
         )

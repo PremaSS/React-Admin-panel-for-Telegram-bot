@@ -32,3 +32,18 @@ class MainDataBase(AbstractDataBase):
         with self.connection.cursor() as cursor:
             cursor.execute(sql, (category_id,))
             return cursor.fetchone()
+
+    def add_audio(self, file_id: str, duration: int, file_name: str,
+                  mime_type: str, title: str, performer: str,
+                  file_unique_id: str, file_size: int):
+        sql = ("INSERT INTO audio(file_id, duration, file_name, mime_type,"
+               " title, performer, file_unique_id, file_size) "
+               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(
+                sql,
+                (file_id, duration, file_name, mime_type, title, performer,
+                file_unique_id, file_size)
+            )
+            self.connection.commit()
