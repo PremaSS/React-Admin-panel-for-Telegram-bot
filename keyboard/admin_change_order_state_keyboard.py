@@ -9,7 +9,7 @@ class Keyboard:
 
     @staticmethod
     def get_main_menu_keyboard():
-        keyboard = ReplyKeyboardMarkup(row_width=3)
+        keyboard = ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         keyboard.add(admin_settings.language.catalog)
         return keyboard
 
