@@ -2,9 +2,9 @@ from aiogram import types
 
 from configs import admin_settings
 from handlers.base_handler import BaseProjectHandler
-from keyboard.admin_change_order_state_keyboard import \
-    Keyboard
+from keyboard.main_keyboard import Keyboard
 from transactions.main_transactions import Transactions
+from utils.handlers_utils import HandlersUtils
 
 
 class MainHandler(BaseProjectHandler):
@@ -36,13 +36,17 @@ class MainHandler(BaseProjectHandler):
         parent = self.transactions.get_parent_id_by_category_id(
             categories[0].parent_category_id
         ) if category_id == "back" else parent_id
-
+        audio_files = self.transactions.get_audio_by_category_id(category_id)
         await callback.message.edit_reply_markup(
             reply_markup=Keyboard.get_catalog_keyboard(
                 categories=categories,
                 parent_id=parent
             )
         )
+        if audio_files:
+            audio_chunks = HandlersUtils.chunker(audio_files, 10)
+            for slice_audio in audio_chunks:
+                await callback.message.answer_media_group(list(slice_audio))
 
     async def upload_audio_handler(self, message: types.Message):
         audio = message.audio

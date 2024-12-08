@@ -47,3 +47,11 @@ class MainDataBase(AbstractDataBase):
                 file_unique_id, file_size)
             )
             self.connection.commit()
+
+    def get_audio_by_category_id(self, category_id: str):
+        sql = "SELECT file_id FROM audio_category WHERE category_id=%s"
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (category_id,))
+            result = cursor.fetchall()
+            return result

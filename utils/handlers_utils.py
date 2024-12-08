@@ -1,4 +1,5 @@
 import logging
+from typing import Iterable
 
 from aiogram import Bot
 from aiogram.types import InputFile
@@ -20,3 +21,14 @@ class HandlersUtils(metaclass=SingletonMeta):
             logging.error(e)
             return None
         return file
+
+    @staticmethod
+    def chunker(iterable: Iterable, chunk_size: int):
+        """Create list of chunks with specific chunk_size from Iterable.
+        For example:
+        chunker([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) -> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        """  # noqa
+        d = {}
+        for i, x in enumerate(iterable):
+            d.setdefault(i // chunk_size, []).append(x)
+        return list(d.values())
