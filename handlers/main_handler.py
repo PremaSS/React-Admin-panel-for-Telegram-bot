@@ -10,11 +10,14 @@ from utils.handlers_utils import HandlersUtils
 class MainHandler(BaseProjectHandler):
     transactions = Transactions()
 
-    @staticmethod
-    async def start_handler(message: types.Message):
+    async def start_handler(self, message: types.Message):
         await message.answer(
             admin_settings.language.catalog,
             reply_markup=Keyboard.get_main_menu_keyboard()
+        )
+        user = message.from_user
+        self.transactions.add_user_if_not_exist(
+            user.id, user.username, user.full_name
         )
 
     async def open_catalog_handler(self, message: types.Message):

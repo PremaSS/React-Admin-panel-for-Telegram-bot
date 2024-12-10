@@ -35,3 +35,8 @@ class Transactions(metaclass=SingletonMeta):
     def get_audio_by_category_id(self, category_id: str):
         audio_files = self.data_base.get_audio_by_category_id(category_id)
         return [InputMediaAudio(*file_id) for file_id in audio_files]
+
+    @ttl_cache(ttl=24 * 60)
+    def add_user_if_not_exist(self, tg_user_id: Union[int, str], username: str,
+                              full_name: str):
+        self.data_base.add_user_if_not_exist(tg_user_id, username, full_name)
