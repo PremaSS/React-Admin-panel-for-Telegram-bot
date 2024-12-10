@@ -1,4 +1,5 @@
 import os
+from typing import Union
 
 from mysql import connector
 
@@ -46,6 +47,15 @@ class MainDataBase(AbstractDataBase):
                 (file_id, duration, file_name, mime_type, title, performer,
                 file_unique_id, file_size)
             )
+            self.connection.commit()
+
+    def add_user_if_not_exist(self, tg_user_id: Union[int, str], username: str,
+                              full_name: str):
+        sql = """INSERT IGNORE INTO `user` 
+        SET `tg_user_id` = %s, `username` = %s, `full_name` = %s;"""
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (tg_user_id, username, full_name))
             self.connection.commit()
 
     def get_audio_by_category_id(self, category_id: str):
