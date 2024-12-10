@@ -1,5 +1,6 @@
 from typing import Union
 
+from aiogram.types import InputMediaAudio
 from cachetools.func import ttl_cache
 
 from data_base.db import MainDataBase
@@ -30,3 +31,7 @@ class Transactions(metaclass=SingletonMeta):
             file_id, duration, file_name, mime_type, title, performer,
             file_unique_id, file_size
         )
+
+    def get_audio_by_category_id(self, category_id: str):
+        audio_files = self.data_base.get_audio_by_category_id(category_id)
+        return [InputMediaAudio(*file_id) for file_id in audio_files]
