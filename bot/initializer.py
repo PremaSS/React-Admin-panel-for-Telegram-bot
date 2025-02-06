@@ -3,8 +3,8 @@ from os import environ
 from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
-from configs import admin_settings
-from configs.ukr import Ukrainian
+from bot.configs import admin_settings
+from bot.configs.ukr import Ukrainian
 
 
 class Initializer:
@@ -18,7 +18,7 @@ class Initializer:
 
     @staticmethod
     def __register_handlers(bot: Bot, dp: Dispatcher):
-        from handler_registrars import HandlerRegistrar
+        from bot.handler_registrars import HandlerRegistrar
         handler_registrar = HandlerRegistrar(dp, bot)
 
         handler_registrar.register_handlers()

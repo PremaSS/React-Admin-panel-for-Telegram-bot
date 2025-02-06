@@ -1,10 +1,10 @@
 from aiogram import types
 
-from configs import admin_settings
-from handlers.base_handler import BaseProjectHandler
-from keyboard.main_keyboard import Keyboard
-from transactions.main_transactions import Transactions
-from utils.handlers_utils import HandlersUtils
+from bot.configs import admin_settings
+from bot.handlers.base_handler import BaseProjectHandler
+from bot.keyboard.main_keyboard import Keyboard
+from bot.transactions.main_transactions import Transactions
+from bot.utils.handlers_utils import HandlersUtils
 
 
 class MainHandler(BaseProjectHandler):

@@ -4,7 +4,7 @@ from typing import Iterable
 from aiogram import Bot
 from aiogram.types import InputFile
 
-from utils.metaclasses import SingletonMeta
+from bot.utils.metaclasses import SingletonMeta
 
 
 class HandlersUtils(metaclass=SingletonMeta):

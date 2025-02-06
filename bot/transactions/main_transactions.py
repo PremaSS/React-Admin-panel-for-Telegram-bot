@@ -3,9 +3,10 @@ from typing import Union
 from aiogram.types import InputMediaAudio
 from cachetools.func import ttl_cache
 
-from data_base.db import MainDataBase
-from entities.category import Category
-from utils.metaclasses import SingletonMeta
+from bot.data_base.db import MainDataBase
+from bot.entities.category import Category
+
+from bot.utils.metaclasses import SingletonMeta
 
 
 class Transactions(metaclass=SingletonMeta):

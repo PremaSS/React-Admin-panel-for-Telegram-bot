@@ -1,6 +1,6 @@
-from configs.base_language import Language
+from bot.configs.base_language import Language
 
 
-class Ukrainian(Language):
+class Russian(Language):
     catalog = "Каталог"
     audio_uploaded = "Аудіо завантажено"

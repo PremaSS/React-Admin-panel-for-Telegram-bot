@@ -1,7 +1,7 @@
 from aiogram import Bot
 from openpyxl.styles import NamedStyle, Font, PatternFill, Side, Border
 
-from handlers.base_handler import BaseProjectHandler
+from bot.handlers.base_handler import BaseProjectHandler
 
 
 class XlsHandlers(BaseProjectHandler):

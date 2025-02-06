@@ -1,9 +1,9 @@
 from aiogram import Dispatcher, Bot, types
 from aiogram.dispatcher import filters
 
-from configs import admin_settings
-from handlers.main_handler import MainHandler
-from utils.metaclasses import ThreadSafeSingletonMeta
+from bot.configs import admin_settings
+from bot.handlers.main_handler import MainHandler
+from bot.utils.metaclasses import ThreadSafeSingletonMeta
 
 
 class HandlerRegistrar(metaclass=ThreadSafeSingletonMeta):

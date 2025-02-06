@@ -1,8 +1,8 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, \
     ReplyKeyboardMarkup
 
-from configs import admin_settings
-from entities.category import Category
+from bot.configs import admin_settings
+from bot.entities.category import Category
 
 
 class Keyboard:

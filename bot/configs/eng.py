@@ -1,4 +1,4 @@
-from configs.base_language import Language
+from bot.configs.base_language import Language
 
 
 class English(Language):

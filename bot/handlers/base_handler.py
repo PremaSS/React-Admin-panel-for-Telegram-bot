@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.utils.exceptions import MessageError
 
-from utils.metaclasses import SingletonMeta
+from bot.utils.metaclasses import SingletonMeta
 
 
 class BaseProjectHandler(metaclass=SingletonMeta):
