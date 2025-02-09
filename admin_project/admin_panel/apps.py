@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UgsConfig(AppConfig):
+class Admin_panelConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ugs'
+    name = 'admin_panel'
