@@ -17,6 +17,7 @@ dev_env:
     SERVICE_NAME: $DEV_SERVICE_NAME
     COMMIT_BRANCH: $CI_COMMIT_BRANCH
     SERVICE_TAG: $SERVICE_TAG
+    DJANGO_PORT: 8000
   trigger:
     project: 'p_bots/ansible_service_install'
     branch: dev
@@ -36,6 +37,7 @@ qa_env:
     SERVICE_NAME: $QA_SERVICE_NAME
     COMMIT_BRANCH: $CI_COMMIT_BRANCH
     SERVICE_TAG: $SERVICE_TAG
+    DJANGO_PORT: 8000
   trigger:
     project: 'p_bots/ansible_service_install'
     branch: dev
@@ -57,6 +59,7 @@ prod_env:
     SERVICE_NAME: $PROD_SERVICE_NAME
     COMMIT_BRANCH: $CI_COMMIT_BRANCH
     SERVICE_TAG: $SERVICE_TAG
+    DJANGO_PORT: 8000
   trigger:
     project: 'p_bots/ansible_service_install'
   when: manual
