@@ -1,6 +1,9 @@
 import asyncio
 import logging
 import os
+import platform
+
+from dotenv import load_dotenv
 
 from bot.initializer import Initializer
 
@@ -8,16 +11,17 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-
+load_dotenv(".env", override=True)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DJANGO_DIR = os.path.join(BASE_DIR, "admin_project")
+python_executable = "py" if platform.system() == "Windows" else "python3"
 
 
 async def run_django():
     """Запуск Django-сервера из virtualenv"""
-    process = await asyncio.create_subprocess_exec(
-        "py", "manage.py", "runserver", "127.0.0.1:8000",
-        cwd=DJANGO_DIR,
+    django_url = f"{os.getenv('HOST')}:{os.getenv('DJANGO_PORT')}"
+    await asyncio.create_subprocess_exec(
+        python_executable, "manage.py", "runserver", django_url, cwd=DJANGO_DIR,
     )
 
 
@@ -32,4 +36,3 @@ async def start():
 
 if __name__ == "__main__":
     asyncio.run(start())
-

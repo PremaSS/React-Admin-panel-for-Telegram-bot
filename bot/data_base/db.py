@@ -7,11 +7,11 @@ from bot.utils.metaclasses import SingletonMeta
 
 
 class AbstractDataBase(metaclass=SingletonMeta):
-    HOST = 'localhost'
-    PORT = 3306
-    USER = 'root'
-    PASSWORD = '12345'
-    DATABASE = 'django'
+    HOST = os.getenv("HOST")
+    PORT = os.getenv("PORT")
+    USER = os.getenv("USER")
+    PASSWORD = os.getenv("PASSWORD")
+    DATABASE = os.getenv("DATABASE")
 
     connection = connector.connect(
         host=HOST, port=PORT, user=USER, password=PASSWORD, database=DATABASE

@@ -3,7 +3,10 @@
 import os
 import sys
 
+from dotenv import load_dotenv
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'admin_project.settings')
+load_dotenv(".env", override=True)
 
 
 def start_django():
