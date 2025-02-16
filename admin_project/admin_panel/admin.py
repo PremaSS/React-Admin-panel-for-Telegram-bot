@@ -28,3 +28,6 @@ admin.site.register(Audio, AudioAdmin)
 admin.site.register(AudioCategory, AudioCategoryAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(User, UserAdmin)
+
+admin.site.site_header = "Привет, Администратор!"
+admin.site.index_template = "admin/custom_index.html"
