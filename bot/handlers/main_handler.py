@@ -30,26 +30,42 @@ class MainHandler(BaseProjectHandler):
         )
 
     async def catalog_handler(self, callback: types.CallbackQuery):
-        category_id = callback.data.split(":")[1]
-        parent_id = callback.data.split(":")[2]
-        if category_id == "back":
-            categories = self.transactions.get_catalog(parent_id)
+        category_id_to_open = callback.data.split(":")[1]
+        categories = self.transactions.get_catalog(category_id_to_open)
+        parent_category_id = self.transactions.get_parent_id_by_category_id(
+            category_id_to_open
+        )
+        if category_id_to_open == "":
+            catalog_title = admin_settings.language.catalog
         else:
-            categories = self.transactions.get_catalog(category_id)
-        parent = self.transactions.get_parent_id_by_category_id(
-            categories[0].parent_category_id
-        ) if category_id == "back" else parent_id
-        audio_files = self.transactions.get_audio_by_category_id(category_id)
-        await callback.message.edit_reply_markup(
-            reply_markup=Keyboard.get_catalog_keyboard(
-                categories=categories,
-                parent_id=parent
-            )
+            catalog_title = self.transactions.get_category_by_id(
+                category_id_to_open
+            ).name
+
+        audio_files = self.transactions.get_audio_by_category_id(
+            category_id_to_open
         )
         if audio_files:
+            await callback.message.edit_text(catalog_title)
             audio_chunks = HandlersUtils.chunker(audio_files, 10)
             for slice_audio in audio_chunks:
                 await callback.message.answer_media_group(list(slice_audio))
+
+            await callback.message.answer(
+                catalog_title,
+                reply_markup=Keyboard.get_catalog_keyboard(
+                    categories=categories,
+                    parent_id=parent_category_id
+                )
+            )
+        else:
+            await callback.message.edit_text(
+                catalog_title,
+                reply_markup=Keyboard.get_catalog_keyboard(
+                    categories=categories,
+                    parent_id=parent_category_id
+                )
+            )
 
     async def upload_audio_handler(self, message: types.Message):
         audio = message.audio

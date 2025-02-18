@@ -27,6 +27,13 @@ class MainDataBase(AbstractDataBase):
             cursor.execute(sql, (parent_category_id,))
             return cursor.fetchall()
 
+    def get_category_by_id(self, parent_category_id):
+        sql = "SELECT name, id, parent_category_id FROM category WHERE id=%s"
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (parent_category_id,))
+            return cursor.fetchone()
+
     def get_parent_id_by_category_id(self, category_id):
         sql = "SELECT parent_category_id FROM category WHERE id=%s"
         self.connection.reconnect(attempts=2)
