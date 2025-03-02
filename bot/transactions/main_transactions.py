@@ -20,6 +20,11 @@ class Transactions(metaclass=SingletonMeta):
         return [Category(*category) for category in categories]
 
     @ttl_cache(ttl=5 * 60)
+    def get_category_by_id(self, category_id: Union[int, str]) -> Category:
+        category = self.data_base.get_category_by_id(category_id)
+        return Category(*category)
+
+    @ttl_cache(ttl=5 * 60)
     def get_parent_id_by_category_id(self, category_id: str) -> int:
         response = self.data_base.get_parent_id_by_category_id(category_id)
         return response[0] if response else ''

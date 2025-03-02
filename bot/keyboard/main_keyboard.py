@@ -1,3 +1,5 @@
+from typing import Union
+
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, \
     ReplyKeyboardMarkup
 
@@ -14,20 +16,19 @@ class Keyboard:
         return keyboard
 
     @staticmethod
-    def get_catalog_keyboard(categories: list[Category], parent_id: str):
+    def get_catalog_keyboard(categories: list[Category],
+                             parent_id: Union[int, str]):
         keyboard = InlineKeyboardMarkup(row_width=1)
         for category in categories:
             keyboard.add(
                 InlineKeyboardButton(
-                    category.name,
-                    callback_data=
-                    f"category_id:{category.id}:{category.parent_category_id}"
+                    category.name, callback_data=f"category_id:{category.id}"
                 )
             )
         if not categories or categories[0].parent_category_id != "":
             keyboard.add(
                 InlineKeyboardButton(
-                    text="Назад", callback_data=f"category_id:back:{parent_id}"
+                    text="Назад", callback_data=f"category_id:{parent_id}"
                 )
             )
         return keyboard
