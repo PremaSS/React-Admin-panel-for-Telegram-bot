@@ -1,4 +1,5 @@
 from aiogram import types
+from aiogram.types import InputMediaPhoto
 
 from bot.configs import admin_settings
 from bot.handlers.base_handler import BaseProjectHandler
@@ -25,8 +26,10 @@ class MainHandler(BaseProjectHandler):
         keyboard = Keyboard.get_catalog_keyboard(
             categories=categories, parent_id=""
         )
-        await message.answer(
-            admin_settings.language.catalog, reply_markup=keyboard
+        category_photo = self.transactions.get_category_photo("")
+        await message.answer_photo(
+            photo=category_photo,
+            caption=admin_settings.language.catalog, reply_markup=keyboard
         )
 
     async def catalog_handler(self, callback: types.CallbackQuery):
@@ -45,21 +48,30 @@ class MainHandler(BaseProjectHandler):
         audio_files = self.transactions.get_audio_by_category_id(
             category_id_to_open
         )
+        category_photo = self.transactions.get_category_photo(category_id_to_open)
         if audio_files:
-            await callback.message.edit_text(catalog_title)
+            await callback.message.edit_caption(catalog_title)
             audio_chunks = HandlersUtils.chunker(audio_files, 10)
             for slice_audio in audio_chunks:
                 await callback.message.answer_media_group(list(slice_audio))
 
-            await callback.message.answer(
-                catalog_title,
+            await callback.message.answer_photo(
+                photo=category_photo, caption=catalog_title,
                 reply_markup=Keyboard.get_catalog_keyboard(
                     categories=categories,
                     parent_id=parent_category_id
                 )
             )
         else:
-            await callback.message.edit_text(
+            if not callback.message.photo[-1].file_id == category_photo:
+                await callback.message.edit_media(
+                    media=InputMediaPhoto(category_photo),
+                    reply_markup=Keyboard.get_catalog_keyboard(
+                        categories=categories,
+                        parent_id=parent_category_id
+                    )
+                )
+            await callback.message.edit_caption(
                 catalog_title,
                 reply_markup=Keyboard.get_catalog_keyboard(
                     categories=categories,
@@ -82,3 +94,8 @@ class MainHandler(BaseProjectHandler):
             file_unique_id, file_size
         )
         await message.answer(admin_settings.language.audio_uploaded)
+
+    async def upload_photo_handler(self, message: types.Message):
+        updated_rows = self.transactions.add_photo(message.photo[-1].file_id)
+        text = f"{admin_settings.language.photos_added}: {updated_rows}"
+        await message.answer(text)
