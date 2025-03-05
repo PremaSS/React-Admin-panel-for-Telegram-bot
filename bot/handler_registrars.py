@@ -34,3 +34,8 @@ class HandlerRegistrar(metaclass=ThreadSafeSingletonMeta):
             self.main_handler.upload_photo_handler,
             content_types=[types.ContentType.PHOTO]
         )
+
+        self.dp.register_message_handler(
+            self.main_handler.upload_video_handler,
+            content_types=[types.ContentType.VIDEO]
+        )

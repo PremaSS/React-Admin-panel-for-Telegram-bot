@@ -5,3 +5,4 @@ class Russian(Language):
     catalog = "Каталог"
     audio_uploaded = "Аудіо завантажено"
     photos_added = "Фото добавлено"
+    video_uploaded = "Видео добавлено"

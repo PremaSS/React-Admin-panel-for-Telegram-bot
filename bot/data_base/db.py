@@ -41,10 +41,10 @@ class MainDataBase(AbstractDataBase):
             cursor.execute(sql, (category_id,))
             return cursor.fetchone()
 
-    def add_audio(self, file_id: str, duration: int, file_name: str,
+    def add_media(self, file_id: str, duration: int, file_name: str,
                   mime_type: str, title: str, performer: str,
                   file_unique_id: str, file_size: int):
-        sql = ("INSERT INTO audio(file_id, duration, file_name, mime_type,"
+        sql = ("INSERT INTO media(file_id, duration, file_name, mime_type,"
                " title, performer, file_unique_id, file_size) "
                "VALUES (%s, %s, %s, %s, %s, %s, %s, %s) "
                "ON DUPLICATE KEY UPDATE file_id=file_id")
@@ -68,8 +68,8 @@ class MainDataBase(AbstractDataBase):
             cursor.execute(sql, (tg_user_id, username, full_name))
             self.connection.commit()
 
-    def get_audio_by_category_id(self, category_id: str):
-        sql = "SELECT file_id FROM audio_category WHERE category_id=%s"
+    def get_media_by_category_id(self, category_id: str):
+        sql = "SELECT file_id FROM media_category WHERE category_id=%s"
         self.connection.reconnect(attempts=2)
         with self.connection.cursor() as cursor:
             cursor.execute(sql, (category_id,))
