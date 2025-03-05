@@ -15,5 +15,10 @@ class Language(ABC):
 
     @property
     @abstractmethod
+    def video_uploaded(self):
+        pass
+
+    @property
+    @abstractmethod
     def photos_added(self):
         pass

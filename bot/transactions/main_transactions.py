@@ -1,11 +1,11 @@
-from typing import Union
+from typing import Union, Optional
 
 from aiogram.types import InputMediaAudio
 from cachetools.func import ttl_cache
+from django.template.context_processors import media
 
 from bot.data_base.db import MainDataBase
 from bot.entities.category import Category
-
 from bot.utils.metaclasses import SingletonMeta
 
 
@@ -30,17 +30,17 @@ class Transactions(metaclass=SingletonMeta):
         return response[0] if response else ''
 
     @ttl_cache(ttl=5 * 60)
-    def add_audio(self, file_id: str, duration: int, file_name: str,
-                  mime_type: str, title: str, performer: str,
+    def add_media(self, file_id: str, duration: int, file_name: str,
+                  mime_type: str, title: Optional[str], performer: Optional[str],
                   file_unique_id: str, file_size: int):
-        self.data_base.add_audio(
+        self.data_base.add_media(
             file_id, duration, file_name, mime_type, title, performer,
             file_unique_id, file_size
         )
 
-    def get_audio_by_category_id(self, category_id: str):
-        audio_files = self.data_base.get_audio_by_category_id(category_id)
-        return [InputMediaAudio(*file_id) for file_id in audio_files]
+    def get_media_by_category_id(self, category_id: str):
+        media_files = self.data_base.get_media_by_category_id(category_id)
+        return [InputMediaAudio(*file_id) for file_id in media_files]
 
     @ttl_cache(ttl=60 * 60)
     def add_user_if_not_exist(self, tg_user_id: Union[int, str], username: str,
