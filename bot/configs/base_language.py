@@ -12,3 +12,8 @@ class Language(ABC):
     @abstractmethod
     def audio_uploaded(self):
         pass
+
+    @property
+    @abstractmethod
+    def photos_added(self):
+        pass

@@ -46,7 +46,8 @@ class MainDataBase(AbstractDataBase):
                   file_unique_id: str, file_size: int):
         sql = ("INSERT INTO audio(file_id, duration, file_name, mime_type,"
                " title, performer, file_unique_id, file_size) "
-               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s) "
+               "ON DUPLICATE KEY UPDATE file_id=file_id")
         self.connection.reconnect(attempts=2)
         with self.connection.cursor() as cursor:
             cursor.execute(
@@ -58,8 +59,10 @@ class MainDataBase(AbstractDataBase):
 
     def add_user_if_not_exist(self, tg_user_id: Union[int, str], username: str,
                               full_name: str):
-        sql = """INSERT IGNORE INTO `user` 
-        SET `tg_user_id` = %s, `username` = %s, `full_name` = %s;"""
+        sql = (
+            "INSERT INTO user(tg_user_id, username, full_name) "
+            "VALUES (%s, %s, %s) "
+            "ON DUPLICATE KEY UPDATE tg_user_id=tg_user_id")
         self.connection.reconnect(attempts=2)
         with self.connection.cursor() as cursor:
             cursor.execute(sql, (tg_user_id, username, full_name))
@@ -72,3 +75,25 @@ class MainDataBase(AbstractDataBase):
             cursor.execute(sql, (category_id,))
             result = cursor.fetchall()
             return result
+
+    def add_photo(self, file_id):
+        sql = "INSERT INTO photo(file_id) VALUES (%s) ON DUPLICATE KEY UPDATE file_id=file_id"
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (file_id,))
+            self.connection.commit()
+            return cursor.rowcount
+
+    def get_config_value_of(self, key):
+        sql = "SELECT value FROM config WHERE name=%s"
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (key,))
+            return cursor.fetchone()
+
+    def get_photo_by_category_id(self, category_id):
+        sql = "SELECT file_id FROM photo_category WHERE category_id=%s"
+        self.connection.reconnect(attempts=2)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (category_id,))
+            return cursor.fetchone()

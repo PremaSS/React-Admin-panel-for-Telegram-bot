@@ -2,15 +2,15 @@
 
 ### Migrations:
 ```bash 
-python3 admin_project/manage.py migrate
+python3 manage.py migrate
 ```
 ### Create superuser:
 ```bash 
-python3 admin_project/manage.py createsuperuser
+python3 manage.py createsuperuser
 ```
 
 
 #### Create models. Optional (When you edit DB):
 ```bash 
-python3 admin_project/manage.py inspectdb > admin_project/admin_panel/models.py
+python3 manage.py inspectdb > admin_panel/models.py
 ```

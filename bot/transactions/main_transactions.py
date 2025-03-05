@@ -42,7 +42,31 @@ class Transactions(metaclass=SingletonMeta):
         audio_files = self.data_base.get_audio_by_category_id(category_id)
         return [InputMediaAudio(*file_id) for file_id in audio_files]
 
-    @ttl_cache(ttl=24 * 60)
+    @ttl_cache(ttl=60 * 60)
     def add_user_if_not_exist(self, tg_user_id: Union[int, str], username: str,
                               full_name: str):
         self.data_base.add_user_if_not_exist(tg_user_id, username, full_name)
+
+    @ttl_cache(ttl=5 * 60)
+    def add_photo(self, file_id: str):
+        return self.data_base.add_photo(file_id)
+
+    @ttl_cache(ttl=5 * 60)
+    def get_default_catalog_photo(self):
+        response = self.data_base.get_config_value_of("default_catalog_photo")
+        if response:
+            return response[0]
+        return response
+
+    @ttl_cache(ttl=5 * 60)
+    def get_photo_by_category_id(self, category_id: str):
+        response = self.data_base.get_photo_by_category_id(category_id)
+        if response:
+            return response[0]
+        return response
+
+    def get_category_photo(self, category_id: str):
+        category_photo = self.get_photo_by_category_id(category_id)
+        if not category_photo:
+            category_photo = self.get_default_catalog_photo()
+        return category_photo

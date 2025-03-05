@@ -30,3 +30,7 @@ class HandlerRegistrar(metaclass=ThreadSafeSingletonMeta):
             self.main_handler.upload_audio_handler,
             content_types=types.ContentType.AUDIO
         )
+        self.dp.register_message_handler(
+            self.main_handler.upload_photo_handler,
+            content_types=[types.ContentType.PHOTO]
+        )
