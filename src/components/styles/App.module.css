@@ -1,0 +1,15 @@
+/* App.module.css */
+
+.app {
+  font-family: sans-serif;
+  padding: 20px;
+  background-color: #f0f0f0; /* Light gray background */
+  min-height: 100vh; /* Ensure full height */
+}
+
+.adminPanelHeader {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
