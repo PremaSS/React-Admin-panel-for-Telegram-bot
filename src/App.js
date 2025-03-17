@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     // Здесь будет загрузка данных с сервера (пока используем заглушку)
-    // В будущем заменить на реальный fetch запрос
+    // В будущем заменим на реальный fetch запрос
   }, []);
 
   const handleCategoryClick = (category) => {
@@ -42,7 +42,7 @@ function App() {
     // Функция генерирования уникального ID
     const generateId = () => Date.now();
 
-    // Функция генерирования имени новой подкатегории
+    // Функция генерирования имени для новой подкатегории
     const generateSubcategoryName = (parent, subcategories) => {
       const nextNumber = subcategories.length + 1;
       if (parent === null) {
@@ -60,7 +60,7 @@ function App() {
       subcategories: [],
     };
 
-    // Функция для рекурсивного обновления состояния категорий
+    // Функция рекурсивного обновления состояния категорий
     const updateCategories = (cats, parentId) => {
       return cats.map((cat) => {
         if (cat.id === parentId) {
@@ -73,13 +73,29 @@ function App() {
       });
     };
 
-    // Если родительская категория равна null, добавляем top-level category
+    // Если родительская категория null, добавляем новую top-level категорию
     if (parentCategory === null) {
       setCategories([...categories, newSubcategory]);
     } else {
-      // В противном случае обновляем подкатегорию родительской категории
+      // Если родительская категория уже существует, обновляем подкатегорию родительской категории
       setCategories(updateCategories(categories, parentCategory.id));
     }
+  };
+
+  const handleDeleteCategory = (categoryToDelete) => {
+    const updateCategories = (cats, categoryId) => {
+      return cats
+        .filter((cat) => cat.id !== categoryId)
+        .map((cat) => {
+          if (cat.subcategories && cat.subcategories.length > 0) {
+            return { ...cat, subcategories: updateCategories(cat.subcategories, categoryId) };
+          } else {
+            return cat;
+          }
+        });
+    };
+
+    setCategories(updateCategories(categories, categoryToDelete.id));
   };
 
   return (
@@ -92,6 +108,7 @@ function App() {
         categories={categories}
         onCategoryClick={handleCategoryClick}
         onAddSubcategory={handleAddSubcategory}
+        onDeleteCategory={handleDeleteCategory}
         level={0}
       />
       {selectedCategory && (

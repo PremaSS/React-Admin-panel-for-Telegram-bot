@@ -4,15 +4,15 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
-  background-color: #fff;
+  border-bottom: 1px solid #ddd; /* Lighter border */
+  background-color: #fff; /* White background for each item */
   border-radius: 5px;
   margin-bottom: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .categoryItem:hover {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Light hover effect */
 }
 
 .categoryName {
@@ -26,7 +26,7 @@
 .toggleButton {
   background-color: #ecf0f1; /* Light gray button */
   border: none;
-  border-radius: 50%;
+  border-radius: 50%; /* Make it round */
   width: 25px;
   height: 25px;
   display: flex;
@@ -40,10 +40,11 @@
 }
 
 .toggleButton:hover {
-  background-color: #d5dbdb;
+  background-color: #d5dbdb; /* Slightly darker on hover */
 }
 
-.addButton {
+.addButton,
+.deleteButton {
   background-color: #3498db;
   color: white;
   border: none;
@@ -54,6 +55,14 @@
   transition: background-color 0.3s ease;
 }
 
+.deleteButton {
+  background-color: #e74c3c;
+}
+
 .addButton:hover {
   background-color: #2980b9;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b;
 }
