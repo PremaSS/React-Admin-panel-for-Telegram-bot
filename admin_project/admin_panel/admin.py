@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import Audio, AudioCategory, Category, User
+from .models import Media, MediaCategory, Category, User
 
 
-class AudioAdmin(admin.ModelAdmin):
+class MediaAdmin(admin.ModelAdmin):
     list_display = ('file_id', 'duration', 'file_name', 'mime_type', 'title', 'performer', 'file_size')  # Поля для отображения в списке
     search_fields = ('file_name', 'mime_type', 'title', 'performer')  # Возможность поиска по этим полям
     list_filter = ('mime_type', 'performer')  # Фильтрация по этим полям
 
 
-class AudioCategoryAdmin(admin.ModelAdmin):
+class MediaCategoryAdmin(admin.ModelAdmin):
     list_display = ('category_id', 'file_id')
     search_fields = ('file_id',)
 
@@ -24,8 +24,8 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = ('full_name', 'username')
 
 
-admin.site.register(Audio, AudioAdmin)
-admin.site.register(AudioCategory, AudioCategoryAdmin)
+admin.site.register(Media, MediaAdmin)
+admin.site.register(MediaCategory, MediaCategoryAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(User, UserAdmin)
 

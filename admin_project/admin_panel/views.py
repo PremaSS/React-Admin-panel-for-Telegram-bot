@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Audio
+from .models import Media
 
 
 def home(request):
@@ -13,7 +13,7 @@ def explore(request):
 
 @staff_member_required  # Ограничение доступа только для админов
 def custom_admin_page(request):
-    audio_files = Audio.objects.all()
+    audio_files = Media.objects.all()
 
     context = {
         "message": "Привет! Это кастомная страница в админке.",

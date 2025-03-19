@@ -19,7 +19,7 @@ python_executable = "py" if platform.system() == "Windows" else "python3"
 
 async def run_django():
     """Запуск Django-сервера из virtualenv"""
-    django_url = f"{os.getenv('HOST')}:{os.getenv('DJANGO_PORT')}"
+    django_url = f"0.0.0.0:{os.getenv('DJANGO_PORT')}"
     await asyncio.create_subprocess_exec(
         python_executable, "manage.py", "runserver", django_url, cwd=DJANGO_DIR,
     )
