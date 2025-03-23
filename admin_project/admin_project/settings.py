@@ -28,11 +28,12 @@ SECRET_KEY = 'django-insecure-o)^##ovf1(w_kohp2-dhf@(3o@jpx=9cj2guecl4+x1k2ilzic
 # DEBUG = True
 
 # Uncomment when SSL cert ready
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 ALLOWED_HOSTS = ["*"]
-
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv("DJANGO_DOMAIN")
+]
 # Application definition
 
 INSTALLED_APPS = [
