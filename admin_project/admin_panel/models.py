@@ -38,6 +38,7 @@ class Media(models.Model):
     performer = models.CharField(max_length=255, blank=True, null=True)
     file_unique_id = models.CharField(max_length=255, blank=True, null=True)
     file_size = models.IntegerField(blank=True, null=True)
+    date_added = models.DateTimeField()
 
     class Meta:
         managed = False

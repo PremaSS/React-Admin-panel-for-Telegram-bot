@@ -14,3 +14,8 @@ python3 manage.py createsuperuser
 ```bash 
 python3 manage.py inspectdb > admin_panel/models.py
 ```
+
+#### Create migrations. Optional (When you edit DB):
+```bash 
+python3 manage.py makemigrations
+```
