@@ -20,7 +20,7 @@ dev_env:
     django: $django
     DJANGO_PORT: $DEV_DJANGO_PORT
     DJANGO_DIR: "./admin_project"
-    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/admin_project/settings"
+    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/settings"
     DJANGO_DOMAIN: $DEV_DJANGO_DOMAIN
   trigger:
     project: 'p_bots/ansible_service_install'
@@ -44,7 +44,7 @@ qa_env:
     django: $django
     DJANGO_PORT: $QA_DJANGO_PORT
     DJANGO_DIR: "admin_project"
-    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/admin_project/settings.py"
+    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/settings.py"
     DJANGO_DOMAIN: $QA_DJANGO_DOMAIN
   trigger:
     project: 'p_bots/ansible_service_install'
@@ -70,7 +70,7 @@ prod_env:
     django: $django
     DJANGO_PORT: $PROD_DJANGO_PORT
     DJANGO_DIR: "./admin_project"
-    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/admin_project/settings.py"
+    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/settings.py"
     DJANGO_DOMAIN: $PROD_DJANGO_DOMAIN
   trigger:
     project: 'p_bots/ansible_service_install'

@@ -12,7 +12,7 @@ import os
 from django.contrib.auth.hashers import make_password
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'admin_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 
 application = get_wsgi_application()
 password = '123'  # замените на ваш желаемый пароль

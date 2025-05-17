@@ -1,25 +1,31 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Media
+from .models import Category
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'admin_panel/home.html')
 
 
 def explore(request):
-    return render(request, 'explore.html')
+   return render(request, 'admin_panel/explore.html')
 
 
-@staff_member_required  # Ограничение доступа только для админов
-def custom_admin_page(request):
-    audio_files = Media.objects.all()
 
-    context = {
-        "message": "Привет! Это кастомная страница в админке.",
-        "audio_files": audio_files
+@staff_member_required
+def categories_by_parent(request, category_id):
+    selected_category = get_object_or_404(Category, id=category_id)
+    categories = Category.objects.filter(parent_category=selected_category).values()
+
+    data = {
+        "message": f"Категории с родительской категорией: {selected_category.name}",
+        "categories": list(categories),  
     }
 
-    return render(request, "admin/custom_page.html", context)
+    return JsonResponse(data)
 
 
+@staff_member_required
+def catalog(request):
+    return render(request, "templates/catalog.html")

@@ -5,7 +5,7 @@ import sys
 
 from dotenv import load_dotenv
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'admin_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 load_dotenv(".env", override=True)
 
 
