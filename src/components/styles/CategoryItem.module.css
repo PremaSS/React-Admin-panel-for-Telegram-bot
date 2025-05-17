@@ -1,0 +1,80 @@
+/* CategoryItem.module.css */
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Lighter border */
+  background-color: #fff; /* White background for each item */
+  border-radius: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.categoryItem:hover {
+  background-color: #f9f9f9; /* Light hover effect */
+}
+
+.categoryName {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #333;
+  font-weight: 500;
+  flex-grow: 1; /*  Занимает доступное пространство */
+}
+
+.toggleButton {
+  background-color: #ecf0f1; /* Light gray button */
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.toggleButton:hover {
+  background-color: #d5dbdb;
+}
+
+.toggleButtonPlaceholder {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.addButton,
+.deleteButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.deleteButton {
+  background-color: #e74c3c;
+}
+
+.addButton:hover {
+  background-color: #2980b9;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b;
+}

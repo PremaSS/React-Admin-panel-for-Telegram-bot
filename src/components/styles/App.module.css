@@ -1,0 +1,37 @@
+/* App.module.css */
+
+.app {
+  font-family: sans-serif;
+  padding: 20px;
+  background-color: #f0f0f0; /* Light gray background */
+  min-height: 100vh; /* Ensure full height */
+  overflow-x: hidden;
+}
+
+.adminPanelHeader {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.addCategoryButton {
+  background-color: #3498db; /* A light blue color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  margin-bottom: 15px;
+}
+
+.addCategoryButton:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+.categoryListContainer {
+  overflow-x: auto; /* Прокрутка по горизонтали */
+  max-width: 100%;
+  padding-bottom: 10px;
+}
