@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path,  re_path
 
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('api/categories/<str:category_id>/', views.categories_by_parent, name='categories_by_parent'),
     path('explore/', views.explore, name='explore'),
-    path("custom_page/", views.custom_admin_page, name='custom_admin_page'),
+    path('', views.home, name='home'),
+    path('catalog/', views.catalog, name='catalog'),
 ]

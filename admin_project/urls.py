@@ -18,9 +18,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+
+admin.site.site_title = "Site Admin"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/login/', auth_views.LoginView.as_view(
+        template_name='registration/login.html',
+        extra_context={
+            'site_header': admin.site.site_header,
+            'site_title': admin.site.site_title,
+            'title': 'Вход'
+            }
+        ), name='login'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path("admin_panel/", include('admin_panel.urls')),
     path('', include('admin_panel.urls')),
 ]
 

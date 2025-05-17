@@ -19,3 +19,9 @@ python3 manage.py inspectdb > admin_panel/models.py
 ```bash 
 python3 manage.py makemigrations
 ```
+
+#### Collect static files. Optional (When you edit static files):
+```bash 
+python3 manage.py collectstatic
+```
+
