@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admin_panel',
     'corsheaders',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -58,14 +59,23 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'admin_project.urls'
 
-FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
+FRONTEND_DIR = BASE_DIR / 'frontend'
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'STATS_FILE': FRONTEND_DIR / 'webpack-stats.json',
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+    }
+}
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(FRONTEND_DIR, 'build')],
+        'DIRS':  [  FRONTEND_DIR / 'build',
+    BASE_DIR / 'admin_project' / 'admin_panel' / 'static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,11 +137,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]
+STATIC_ROOT = BASE_DIR  / 'staticfiles'
+STATICFILES_DIRS = [FRONTEND_DIR / 'build',]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = '/admin/'
 LOGIN_URL = 'login'

@@ -17,8 +17,9 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
 
 admin.site.site_title = "Site Admin"
 
@@ -33,8 +34,10 @@ urlpatterns = [
             }
         ), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path("admin_panel/", include('admin_panel.urls')),
     path('', include('admin_panel.urls')),
+
+    re_path(r'^catalog/(?:.*)/?$', TemplateView.as_view(template_name='admin_panel/catalog.html'),name='react_catalog_app'),
+
 ]
 
 if settings.DEBUG:
