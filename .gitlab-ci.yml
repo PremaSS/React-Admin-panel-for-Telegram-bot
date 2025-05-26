@@ -1,0 +1,77 @@
+stages:
+  - dev_env
+  - qa_env
+  - prod_env
+
+dev_env:
+  stage: dev_env
+  variables:
+    BOT_TOKEN: $DEV_BOT_TOKEN
+    HOST: $HOST
+    PORT: $PORT
+    USER: $USER
+    PASSWORD: $PASSWORD
+    DATABASE: $DEV_DATABASE
+    DUMP: $DUMP
+    GIT_LINK: $GIT_LINK
+    SERVICE_NAME: $DEV_SERVICE_NAME
+    COMMIT_BRANCH: $CI_COMMIT_BRANCH
+    SERVICE_TAG: $SERVICE_TAG
+    django: $django
+    DJANGO_PORT: $DEV_DJANGO_PORT
+    DJANGO_DIR: "./admin_project"
+    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/settings"
+    DJANGO_DOMAIN: $DEV_DJANGO_DOMAIN
+  trigger:
+    project: 'p_bots/ansible_service_install'
+    branch: dev
+  when: manual
+
+qa_env:
+  stage: qa_env
+  variables:
+    BOT_TOKEN: $QA_BOT_TOKEN
+    HOST: $HOST
+    PORT: $PORT
+    USER: $USER
+    PASSWORD: $PASSWORD
+    DATABASE: $QA_DATABASE
+    DUMP: $DUMP
+    GIT_LINK: $GIT_LINK
+    SERVICE_NAME: $QA_SERVICE_NAME
+    COMMIT_BRANCH: $CI_COMMIT_BRANCH
+    SERVICE_TAG: $SERVICE_TAG
+    django: $django
+    DJANGO_PORT: $QA_DJANGO_PORT
+    DJANGO_DIR: "admin_project"
+    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/settings.py"
+    DJANGO_DOMAIN: $QA_DJANGO_DOMAIN
+  trigger:
+    project: 'p_bots/ansible_service_install'
+    branch: dev
+  when: manual
+
+prod_env:
+  stage: prod_env
+  only:
+    - master
+  variables:
+    BOT_TOKEN: $PROD_BOT_TOKEN
+    HOST: $HOST
+    PORT: $PORT
+    USER: $USER
+    PASSWORD: $PASSWORD
+    DATABASE: $PROD_DATABASE
+    DUMP: $DUMP
+    GIT_LINK: $GIT_LINK
+    SERVICE_NAME: $PROD_SERVICE_NAME
+    COMMIT_BRANCH: $CI_COMMIT_BRANCH
+    SERVICE_TAG: $SERVICE_TAG
+    django: $django
+    DJANGO_PORT: $PROD_DJANGO_PORT
+    DJANGO_DIR: "./admin_project"
+    DJANGO_SETTINGS_MODULE: "$DJANGO_DIR/settings.py"
+    DJANGO_DOMAIN: $PROD_DJANGO_DOMAIN
+  trigger:
+    project: 'p_bots/ansible_service_install'
+  when: manual

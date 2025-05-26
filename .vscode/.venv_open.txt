@@ -1,0 +1,32 @@
+
+
+Для Windows:
+
+Для Command Prompt (cmd.exe):
+
+.\.venv\Scripts\activate
+
+
+Для PowerShell:
+
+.\.venv\Scripts\Activate.ps1
+
+
+(Иногда в PowerShell может потребоваться разрешить выполнение скриптов командой: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process. Запустить, если команда Activate.ps1 не сработает)
+
+Для macOS или Linux (а также Git Bash в Windows):
+
+source .venv/bin/activate
+
+
+Как понять, что окружение активировалось:
+
+После выполнения правильной команды, в начале строки терминала должно появиться имя виртуального окружения в скобках, например:
+
+(.venv) C:\PycharmProjects\lectures-collection-bot>
+
+или
+
+(.venv) user@machine:~/projects/lectures-collection-bot$
+
+

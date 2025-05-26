@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+      <a href="{% url 'admin:index' %}" class="btn-admin">Go to Admin</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="main-content">
+      <div class="content">
+        <h1>Welcome to the Divine Realm</h1>
+        <p>
+          Experience the spirituality and beauty of ancient India, where wisdom and grace flow like
+          the river of life.
+        </p>
+        <a href="#" class="btn" id="explore-btn">Explore More</a>
+      </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}" defer></script>
+  </body>
+</html>
