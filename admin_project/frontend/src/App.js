@@ -140,16 +140,16 @@ function App() {
     <div className={styles.app}>
       <h1 className={styles.adminPanelHeader}>Admin Panel</h1>
       <button className={styles.addCategoryButton} onClick={() => handleAddSubcategory(null)}>
-        Add Category
+        Add Root Category
       </button>
 
       <div className={styles.categoryListContainer}>
         <CategoryList
-          categories={categories}
+          categories={categories} // Передаем загруженные категории
           onCategoryClick={handleCategoryClick}
           onAddSubcategory={handleAddSubcategory}
           onDeleteCategory={handleDeleteCategory}
-          level={0}
+          level={0} // Для корневых категорий
           maxLevels={MAX_CATEGORY_LEVELS}
         />
       </div>
