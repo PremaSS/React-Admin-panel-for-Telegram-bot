@@ -28,4 +28,4 @@ def categories_by_parent(request, category_id):
 
 @staff_member_required
 def catalog(request):
-    return render(request, "templates/catalog.html")
+    return render(request, "admin_panel/catalog.html")

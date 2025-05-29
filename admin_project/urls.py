@@ -35,9 +35,6 @@ urlpatterns = [
         ), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('admin_panel.urls')),
-
-    re_path(r'^catalog/(?:.*)/?$', TemplateView.as_view(template_name='admin_panel/catalog.html'),name='react_catalog_app'),
-
 ]
 
 if settings.DEBUG:
