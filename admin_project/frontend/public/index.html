@@ -1,22 +1,23 @@
-{% load render_bundle from webpack_loader %}
-{% load static %}
+{% extends "admin/base_site.html" %} {% block header %} {% endblock %} {% block content %} {% load
+static %} {% load i18n %}
+<link rel="stylesheet" href="{% static 'css/no_margin.css' %}" />
+
+{% load render_bundle from webpack_loader %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block extrahead %}
     <meta charset="utf-8" />
     <link rel="icon" href="{% static 'img/icons8-catalog-96.png' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Bot catalog"
-    />
+    <meta name="description" content="Bot catalog" />
     <link rel="apple-touch-icon" href="{% static 'img/icons8-catalog-96.png' %}" />
     <link rel="manifest" href="{% static 'manifest.json' %}" />
 
     <title>Catalog</title>
 
-    {% render_bundle 'main' 'css' %}
+    {% render_bundle 'main' 'css' %} {% endblock extrahead %}
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -24,3 +25,4 @@
     {% render_bundle 'main' 'js' %}
   </body>
 </html>
+{% endblock %}
