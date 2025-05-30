@@ -36,3 +36,10 @@ npm run build
 3. cd ..
 4. python manage.py collectstatic --noinput --clear (для DEBUG = False)
 5. Запустить Django сервер (main или python manage.py runserver)
+
+--- Или с директории lectures-collection-bot\admin_project\frontend запустить сразу 3 команды: ---
+
+cd frontend
+npm run build
+cd ..
+python manage.py collectstatic --noinput --clear
