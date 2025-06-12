@@ -1,0 +1,60 @@
+Index: admin_project/admin_panel/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render, get_object_or_404\r\nfrom django.contrib.admin.views.decorators import staff_member_required\r\nfrom .models import Category\r\n\r\n\r\ndef home(request):\r\n    return render(request, 'home.html')\r\n\r\n\r\ndef explore(request):\r\n    return render(request, 'explore.html')\r\n\r\n\r\n@staff_member_required  # Ограничение доступа только для админов\r\ndef custom_admin_page(request):\r\n    category = Category.objects.filter(parent_category_id = \"\")\r\n\r\n    context = {\r\n        \"message\": \"Привет! Это кастомная страница в админке.\",\r\n        \"categories\": category\r\n    }\r\n\r\n    return render(request, \"admin/custom_page.html\", context)\r\n\r\n\r\n@staff_member_required\r\ndef categories_by_parent(request, category_id):\r\n    selected_category = get_object_or_404(Category, id=category_id)\r\n    categories = Category.objects.filter(parent_category_id=selected_category.id)\r\n\r\n    context = {\r\n        \"message\": f\"Категории с родительской категорией: {selected_category.name}\",\r\n        \"categories\": categories\r\n    }\r\n\r\n    return render(request, \"admin/custom_page.html\", context)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/admin_project/admin_panel/views.py b/admin_project/admin_panel/views.py
+--- a/admin_project/admin_panel/views.py	(revision d6d8f4ef56e7544261626da4665dff4242059b0d)
++++ b/admin_project/admin_panel/views.py	(date 1743883795165)
+@@ -1,36 +1,37 @@
++from django.http import JsonResponse
+ from django.shortcuts import render, get_object_or_404
+ from django.contrib.admin.views.decorators import staff_member_required
+ from .models import Category
+ 
+ 
+ def home(request):
+-    return render(request, 'home.html')
++    return JsonResponse({'message': 'Home page'}) # Заменил на JSON
+ 
+ 
+ def explore(request):
+-    return render(request, 'explore.html')
++    return JsonResponse({'message': 'Explore page'}) # Заменил на JSON
+ 
+ 
+-@staff_member_required  # Ограничение доступа только для админов
++# @staff_member_required  # Ограничение доступа только для админов
+ def custom_admin_page(request):
+-    category = Category.objects.filter(parent_category_id = "")
++    categories = Category.objects.filter(parent_category=None).values() # Получаем только корневые категории
+ 
+-    context = {
++    data = {
+         "message": "Привет! Это кастомная страница в админке.",
+-        "categories": category
++        "categories": list(categories),  # Преобразуем QuerySet в список словарей
+     }
+ 
+-    return render(request, "admin/custom_page.html", context)
++    return JsonResponse(data)
+ 
+ 
+-@staff_member_required
++# @staff_member_required
+ def categories_by_parent(request, category_id):
+     selected_category = get_object_or_404(Category, id=category_id)
+-    categories = Category.objects.filter(parent_category_id=selected_category.id)
++    categories = Category.objects.filter(parent_category=selected_category).values()
+ 
+-    context = {
++    data = {
+         "message": f"Категории с родительской категорией: {selected_category.name}",
+-        "categories": categories
++        "categories": list(categories),  # Преобразуем QuerySet в список словарей
+     }
+ 
+-    return render(request, "admin/custom_page.html", context)
++    return JsonResponse(data)

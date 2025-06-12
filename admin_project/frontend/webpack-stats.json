@@ -1,0 +1,49 @@
+{
+  "status": "done",
+  "assets": {
+    "asset-manifest.json": {
+      "name": "asset-manifest.json",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\asset-manifest.json",
+      "publicPath": "/static/asset-manifest.json"
+    },
+    "css/main.40266829.css": {
+      "name": "css/main.40266829.css",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\css\\main.40266829.css",
+      "publicPath": "/static/css/main.40266829.css"
+    },
+    "css/main.40266829.css.map": {
+      "name": "css/main.40266829.css.map",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\css\\main.40266829.css.map",
+      "publicPath": "/static/css/main.40266829.css.map"
+    },
+    "index.html": {
+      "name": "index.html",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\index.html",
+      "publicPath": "/static/index.html"
+    },
+    "js/main.3658556c.js": {
+      "name": "js/main.3658556c.js",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\js\\main.3658556c.js",
+      "publicPath": "/static/js/main.3658556c.js"
+    },
+    "js/main.3658556c.js.LICENSE.txt": {
+      "name": "js/main.3658556c.js.LICENSE.txt",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\js\\main.3658556c.js.LICENSE.txt",
+      "publicPath": "/static/js/main.3658556c.js.LICENSE.txt"
+    },
+    "js/main.3658556c.js.map": {
+      "name": "js/main.3658556c.js.map",
+      "path": "C:\\Users\\d2220\\PycharmProjects\\lectures-collection-bot\\admin_project\\frontend\\build\\js\\main.3658556c.js.map",
+      "publicPath": "/static/js/main.3658556c.js.map"
+    }
+  },
+  "chunks": {
+    "main": [
+      "css/main.40266829.css",
+      "js/main.3658556c.js"
+    ]
+  },
+  "publicPath": "/static/",
+  "startTime": 1749670287861,
+  "endTime": 1749670333241
+}

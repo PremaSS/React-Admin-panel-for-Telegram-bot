@@ -28,18 +28,18 @@ function CategoryItem({
   };
 
   const canAddSubcategory = level < maxLevels - 1;
-  // const showToggleButton = category.subcategories && category.subcategories.length > 0; // Если понадобится, то есть кнопка "+/-", которая прячется, условие ниже, закомментировано
+  const showToggleButton = category.subcategories && category.subcategories.length > 0;
 
   return (
     <li style={{ marginLeft: `${indent}px` }}>
       <div className={styles.categoryItem}>
-        {/* {showToggleButton ? ( */}
-        <button className={styles.toggleButton} onClick={handleToggleExpand}>
-          {isExpanded ? '-' : '+'}
-        </button>
-        {/* ) : (
+        {showToggleButton ? (
+          <button className={styles.toggleButton} onClick={handleToggleExpand}>
+            {isExpanded ? '-' : '+'}
+          </button>
+        ) : (
           <span className={styles.toggleButtonPlaceholder}></span>
-        )} */}
+        )}
 
         <span onClick={() => onCategoryClick(category)} className={styles.categoryName}>
           {category.name}

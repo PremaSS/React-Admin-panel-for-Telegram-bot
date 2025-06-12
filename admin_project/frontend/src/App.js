@@ -8,15 +8,29 @@ const MAX_CAT_NAME_LENGTH_FOR_GEN = 127;
 
 function App() {
   const [categories, setCategories] = useState([
-    { id: 1, name: 'Category 1', subcategories: [] },
-    { id: 2, name: 'Category 2', subcategories: [] },
-    { id: 3, name: 'Category 3', subcategories: [] },
+    // { id: 1, name: 'Category 1', subcategories: [] },
+    // { id: 2, name: 'Category 2', subcategories: [] },
+    // { id: 3, name: 'Category 3', subcategories: [] },
   ]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Состояние загрузки
 
   useEffect(() => {
-    // Здесь будет загрузка данных с сервера (пока используем заглушку)
-    // В будущем заменим на реальный fetch запрос
+    fetch('/api/categories/')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCategories(data);
+        setIsLoading(false); // Загрузка завершена
+      })
+      .catch((error) => {
+        console.error('Failed to fetch categories:', error);
+        setIsLoading(false); // Загрузка завершилась с ошибкой
+      });
   }, []);
 
   const handleCategoryClick = (category) => {
@@ -135,6 +149,11 @@ function App() {
       setSelectedCategory(null);
     }
   };
+  if (isLoading) {
+    return (<div className={styles.loaderContainer}>
+        <div className={styles.loader}></div>
+      </div>)
+  }
 
   return (
     <div className={styles.app}>

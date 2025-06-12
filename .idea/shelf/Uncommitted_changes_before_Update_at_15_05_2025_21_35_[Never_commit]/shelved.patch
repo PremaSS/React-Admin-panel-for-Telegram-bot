@@ -1,0 +1,31 @@
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#HOST=localhost\r\n#PORT=3306\r\n#USER=root\r\n#PASSWORD=\r\n#DATABASE=\r\n#DJANGO_PORT=8000\r\n#BOT_TOKEN=
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+--- a/.env	(revision d819c162384ae1c08a53daa122cbe0194ad0d7f8)
++++ b/.env	(date 1744234013456)
+@@ -1,7 +1,11 @@
+-#HOST=localhost
+-#PORT=3306
+-#USER=root
+-#PASSWORD=
+-#DATABASE=
+-#DJANGO_PORT=8000
+-#BOT_TOKEN=
+\ No newline at end of file
++HOST=185.253.219.129
++PORT=3306
++USER=siteshares_qa
++PASSWORD=PassW
++DATABASE=dev_lectures_collection
++DJANGO_PORT=8000
++BOT_TOKEN=7782117535:AAE5XP4vXOSFaNWNkKCvvTuQEGugIVFPWvM
++DJANGO_USERNAME=admin
++DJANGO_PASSWORD=admin
++DJANGO_SETTINGS_MODULE=admin_project.settings
++DJANGO_DOMAIN="http://localhost:8080"
+\ No newline at end of file

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c38cfecc-a78f-4be6-b55f-75292142131e" name="Changes" comment="Add React Source To Django with craco.js">
+      <change beforePath="$PROJECT_DIR$/admin_project/admin_panel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/admin_panel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/admin_panel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/admin_panel/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/frontend/src/components/CategoryItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/frontend/src/components/CategoryItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/frontend/src/components/styles/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/frontend/src/components/styles/App.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/asset-manifest.36d22de2db29.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/staticfiles/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/asset-manifest.json.gz" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/staticfiles/asset-manifest.json.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.b326b6a1e7b6.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.b326b6a1e7b6.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.css.b89ba26f902a.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.css.b89ba26f902a.map.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/css/main.71347166.css.map.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/index.649bfa5c0382.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/staticfiles/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/index.html.gz" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/staticfiles/index.html.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_project/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin_project/staticfiles/staticfiles.json" afterDir="false" />
+    </list>
+    <list id="f626aa93-6131-4ffa-a7ab-cc1f345bcf4e" name="Never commit" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;PremaSS&quot;,
+      &quot;fullname&quot;: &quot;PremaSS&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab.com/p_bots/lectures-collection-bot.git&quot;,
+    &quot;second&quot;: &quot;76648a8c-409d-40e8-8d36-daf6a4393aaa&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2vH8iFl46yyfmBd5PPR1FE42hha" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add__react__source&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/d2220/PycharmProjects/lectures-collection-bot/admin_project/frontend&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\frontend" />
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\staticfiles\js" />
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\staticfiles\css" />
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\frontend\build\static\js" />
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\frontend\build\static\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\frontend" />
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\frontend\build" />
+      <recent name="C:\Users\d2220\PycharmProjects\lectures-collection-bot\admin_project\admin_panel\static\admin_panel" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="lectures-collection-bot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="lectures-collection-bot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/admin_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/admin_project/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.manage" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.manage" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-14705d77f0bb-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c38cfecc-a78f-4be6-b55f-75292142131e" name="Changes" comment="" />
+      <changelist id="f626aa93-6131-4ffa-a7ab-cc1f345bcf4e" name="Never commit" comment="" />
+      <created>1743790763896</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743790763896</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add Catalog Page">
+      <option name="closed" value="true" />
+      <created>1745433928209</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745433928209</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Commit">
+      <option name="closed" value="true" />
+      <created>1747336470527</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747336470529</updated>
+    </task>
+    <task id="LOCAL-00003" summary="5 level limit&#10;127 symbols limit">
+      <option name="closed" value="true" />
+      <created>1747375374986</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747375374986</updated>
+    </task>
+    <task id="LOCAL-00004" summary="5 level limit&#10;127 symbols limit">
+      <option name="closed" value="true" />
+      <created>1747419623599</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747419623599</updated>
+    </task>
+    <task id="LOCAL-00005" summary="5 level limit,&#10;127 symbols limit">
+      <option name="closed" value="true" />
+      <created>1747419765127</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747419765127</updated>
+    </task>
+    <task id="LOCAL-00006" summary="5 level limit,&#10;127 symbols limit">
+      <option name="closed" value="true" />
+      <created>1747420177203</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747420177203</updated>
+    </task>
+    <task id="LOCAL-00007" summary="5 level limit,&#10;127 symbols limit">
+      <option name="closed" value="true" />
+      <created>1747420202333</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747420202333</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add React Source">
+      <option name="closed" value="true" />
+      <created>1747769131763</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747769131763</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add React Source To Jango">
+      <option name="closed" value="true" />
+      <created>1748033703535</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748033703535</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add React Source To Django with craco.js">
+      <option name="closed" value="true" />
+      <created>1748463614050</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748463614051</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="jsonResponse" />
+    <MESSAGE value="Add Catalog Page" />
+    <MESSAGE value="Commit" />
+    <MESSAGE value="5 level limit&#10;127 symbols limit" />
+    <MESSAGE value="5 level limit,&#10;127 symbols limit" />
+    <MESSAGE value="Add React Source" />
+    <MESSAGE value="Add React Source To Jango" />
+    <MESSAGE value="Add React Source To Django with craco.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add React Source To Django with craco.js" />
+  </component>
+</project>
